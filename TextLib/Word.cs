@@ -1,10 +1,8 @@
 ﻿/*
  * Created by SharpDevelop.
- * User: a491259
+ * User: carleson
  * Date: 2013-06-25
  * Time: 13:27
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using System.Linq;
@@ -53,41 +51,25 @@ namespace TextLib
 		/// </summary>
 		/// <param name="input">String to get the size of</param>
 		/// <returns></returns>
-		public int GetSizeInBytes(string input)
+		public int GetSizeInBytes()
 		{
 			//X = (8 + 4 + 2 + (2 * LEN)) + 4 - 1) / 4 * 4
-			int size = (8 + 4 + 2 + (2 * input.Length)) + 4 - 1; // / 4 * 4;
+			int size = (8 + 4 + 2 + (2 * _text.Length)) + 4 - 1; // / 4 * 4;
 			size = size/4 * 4;
 			
 			return size;
 		}
 		
-		private string CommonWords()
+		public List<string> Words()
 		{
-			string text = _text;
-			
-			  // Number of words
-            string[] words = text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
-            //int numWords = words.Length;
-
-
-            // Number of letters
-//            int numLetters = 0;
-//            foreach (char c in text)
-//            {
-//                if (char.IsLetter(c))
-//                    numLetters ++;
-//            }
-
-
-            // Number of symbols
-//            int numSymbols = 0;
-//            foreach (char c in text)
-//            {
-//                if (char.IsPunctuation(c))
-//                    numSymbols ++;
-//            }
-
+			string[] words = _text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+			return words.ToList();
+		}
+		
+		
+		public string CommonWords()
+		{
+			string[] words = _text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 
             // Most common words
             var dictionary = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);

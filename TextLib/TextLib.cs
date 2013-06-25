@@ -1,10 +1,8 @@
 ﻿/*
  * Created by SharpDevelop.
- * User: a491259
+ * User: carleson
  * Date: 2013-06-25
  * Time: 13:14
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using System.Collections.Generic;
@@ -19,8 +17,9 @@ namespace TextLib
 	
 		private string _text;
 		public Word word {get; private set;}
-		public Character character {get; private set;}
+		public Letter letter {get; private set;}
 		public Convert convert {get;private set;}
+		public Number number {get;set;}
 		
 		public void Load(string text)
 		{
@@ -31,8 +30,9 @@ namespace TextLib
 		{
 			_text = text;
 			word = new Word(this);
-			character = new Character(this);
+			letter = new Letter(this);
 			convert = new Convert(this);
+			number = new Number(this);
 		}
 		
 		public string Text
