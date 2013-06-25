@@ -1,0 +1,121 @@
+﻿/*
+ * Created by SharpDevelop.
+ * User: a491259
+ * Date: 2013-06-25
+ * Time: 13:27
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace TextLib
+{
+	/// <summary>
+	/// Description of Word.
+	/// </summary>
+	public class Word
+	{
+		private string _text;
+		
+		public Word(TextLib.Textlib lib)
+		{
+			_text = lib.Text;
+		}
+
+		
+		public int Count(string word)
+		{
+			string text = _text;
+			int pos = 0;
+			int count = 0;
+			pos = text.IndexOf(word);
+			while (pos != -1 && text.Length >= pos)
+			{
+				count++;
+				pos = _text.IndexOf(word,pos+1);
+			}
+			return count;
+		}
+		
+
+		public int Count()
+		{
+			string text = _text;
+			
+			string[] words = text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+            return words.Length;
+		}
+		
+		/// <summary>
+		/// Calculates the true size of a string, in bytes
+		/// </summary>
+		/// <param name="input">String to get the size of</param>
+		/// <returns></returns>
+		public int GetSizeInBytes(string input)
+		{
+			//X = (8 + 4 + 2 + (2 * LEN)) + 4 - 1) / 4 * 4
+			int size = (8 + 4 + 2 + (2 * input.Length)) + 4 - 1; // / 4 * 4;
+			size = size/4 * 4;
+			
+			return size;
+		}
+		
+		private string CommonWords()
+		{
+			string text = _text;
+			
+			  // Number of words
+            string[] words = text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+            //int numWords = words.Length;
+
+
+            // Number of letters
+//            int numLetters = 0;
+//            foreach (char c in text)
+//            {
+//                if (char.IsLetter(c))
+//                    numLetters ++;
+//            }
+
+
+            // Number of symbols
+//            int numSymbols = 0;
+//            foreach (char c in text)
+//            {
+//                if (char.IsPunctuation(c))
+//                    numSymbols ++;
+//            }
+
+
+            // Most common words
+            var dictionary = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
+
+            foreach (string word in words)
+            {
+                if (dictionary.ContainsKey(word))
+                    dictionary[word] = dictionary[word] + 1;
+                else
+                    dictionary[word] = 1;
+            }
+
+            var sortedDictionary = from item in dictionary
+                              orderby item.Value descending
+                              select item;
+
+            string[] commonWords = new string[3];
+            int count = 0;
+
+            foreach (KeyValuePair<string, int> item in sortedDictionary.Take(3))
+            {
+                commonWords[count] = item.Key;
+                count++;
+            }
+
+			 Console.WriteLine("Top three most common words: {0}, {1}, {2}", commonWords[0], commonWords[1], commonWords[2]);
+			 string output = string.Format("Top three most common words: {0}, {1}, {2}", commonWords[0], commonWords[1], commonWords[2]);
+			 return output;
+		}
+	}
+}

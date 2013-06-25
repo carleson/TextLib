@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.3
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextLib", "TextLib\TextLib.csproj", "{30FECFE7-6124-4BEF-8E05-A7A0F6B27C1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30FECFE7-6124-4BEF-8E05-A7A0F6B27C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30FECFE7-6124-4BEF-8E05-A7A0F6B27C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30FECFE7-6124-4BEF-8E05-A7A0F6B27C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30FECFE7-6124-4BEF-8E05-A7A0F6B27C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal
