@@ -13,21 +13,18 @@ namespace TextLib
 	/// <summary>
 	/// Description of Char.
 	/// </summary>
-	public class Letter
+	public class Letter : TextLib.Textlib
 	{
-		private string _text;
 		
-		public Letter(TextLib.Textlib lib)
+		public Letter(string text)
 		{
-			_text = lib.Text;
+			Text = text;
 		}
 		
 		public int Count()
 		{
-			string text = _text;
-
             int numLetters = 0;
-            foreach (char c in text)
+            foreach (char c in Text)
             {
                 if (char.IsLetter(c))
                     numLetters ++;
@@ -38,7 +35,7 @@ namespace TextLib
 		public List<string> Letters()
 		{
 			List<string> letterList = new List<string>();
-			foreach (char c in _text)
+			foreach (char c in Text)
             {
                 if (char.IsLetter(c))
                 	letterList.Add(c.ToString());

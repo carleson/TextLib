@@ -13,36 +13,33 @@ namespace TextLib
 	/// <summary>
 	/// Description of Word.
 	/// </summary>
-	public class Word
+	public class Word : TextLib.Textlib
 	{
-		private string _text;
 		
-		public Word(TextLib.Textlib lib)
+		public Word(string text)
 		{
-			_text = lib.Text;
+			Text = text;
 		}
 
 		
 		public int Count(string word)
 		{
-			string text = _text;
+			string text = Text;
 			int pos = 0;
 			int count = 0;
 			pos = text.IndexOf(word);
 			while (pos != -1 && text.Length >= pos)
 			{
 				count++;
-				pos = _text.IndexOf(word,pos+1);
+				pos = Text.IndexOf(word,pos+1);
 			}
 			return count;
 		}
 		
 
 		public int Count()
-		{
-			string text = _text;
-			
-			string[] words = text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+		{		
+			string[] words = Text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
             return words.Length;
 		}
 		
@@ -54,7 +51,7 @@ namespace TextLib
 		public int GetSizeInBytes()
 		{
 			//X = (8 + 4 + 2 + (2 * LEN)) + 4 - 1) / 4 * 4
-			int size = (8 + 4 + 2 + (2 * _text.Length)) + 4 - 1; // / 4 * 4;
+			int size = (8 + 4 + 2 + (2 * Text.Length)) + 4 - 1; // / 4 * 4;
 			size = size/4 * 4;
 			
 			return size;
@@ -62,14 +59,14 @@ namespace TextLib
 		
 		public List<string> Words()
 		{
-			string[] words = _text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+			string[] words = Text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 			return words.ToList();
 		}
 		
 		
 		public string CommonWords()
 		{
-			string[] words = _text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+			string[] words = Text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 
             // Most common words
             var dictionary = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);

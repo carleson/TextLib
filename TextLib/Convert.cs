@@ -11,10 +11,11 @@ namespace TextLib
 	/// <summary>
 	/// Description of Convert.
 	/// </summary>
-	public class Convert
+	public class Convert : TextLib.Textlib
 	{
-		public Convert(TextLib.Textlib lib)
+		public Convert(string text)
 		{
+			Text = text;
 		}
 		
 		public string ToHelloWorld

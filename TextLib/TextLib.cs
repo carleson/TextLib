@@ -16,9 +16,9 @@ namespace TextLib
 	{
 	
 		private string _text;
-		public Word word {get; private set;}
-		public Letter letter {get; private set;}
-		public Convert convert {get;private set;}
+//		public Word word {get; private set;}
+//		public Letter letter {get; private set;}
+//		public Convert convert {get;private set;}
 		
 		public void Load(string text)
 		{
@@ -27,7 +27,6 @@ namespace TextLib
 		
 		public Textlib()
 		{
-			//Init();
 		}
 		
 		public Textlib(string text)
@@ -38,9 +37,9 @@ namespace TextLib
 		
 		private void Init()
 		{
-			word = new Word(this);
-			letter = new Letter(this);
-			convert = new Convert(this);
+//			word = new Word(this);
+//			letter = new Letter(this);
+//			convert = new Convert(this);
 			//number = new Number();	
 		}
 

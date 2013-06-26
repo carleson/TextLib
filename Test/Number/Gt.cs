@@ -1,10 +1,8 @@
 ﻿/*
  * Created by SharpDevelop.
- * User: a491259
+ * User: carleson
  * Date: 2013-06-26
  * Time: 09:23
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using NUnit.Framework;
@@ -13,14 +11,13 @@ using System.Collections.Generic;
 using TextLib.Numbers;
 using System.Diagnostics;
 
-namespace Test
+namespace NumberTest
 {
 
 	[TestFixture]
-	public class Gt //:TestUtil
+	public class Gt : Test.TestUtil
 	{
 		IEnumerable<int> list;
-		Number nr;
 		
 		public Gt()
 		{
@@ -29,12 +26,8 @@ namespace Test
 		[SetUp]
 		public void init()
 		{
-			nr = new Number("abc13lmn5890v");
-			list= nr.Gt(5);
-//			
-//			lib.Load("abc13lmn5890v");
-//			list = lib.number.Gt(5);
-			
+			_number = new Number("abc13lmn5890v");
+			list= _number.Gt(5);	
 		}
 
 		[Test]
@@ -43,5 +36,19 @@ namespace Test
 			Debug.Print(string.Format("{0}",list.Count()));
 			Assert.IsTrue(list.Count() == 2);
 		}
+		
+		[Test]
+		public void GetNumbers()
+		{
+			Assert.IsTrue(_number.Numbers.Count==6);
+		}
+		
+		[Test]
+		public void GetZeroNumbers()
+		{
+			_number = new Number("abcd");
+			Assert.IsTrue(_number.Numbers.Count==0);
+		}
+		
 	}
 }

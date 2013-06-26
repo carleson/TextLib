@@ -10,7 +10,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using TextLib;
-
+using TextLib.Numbers;
 
 namespace Test
 {
@@ -19,6 +19,7 @@ namespace Test
 	{
 		public int[] NumberArray {get;set;}
 		public Textlib lib;
+		public Number _number;
 		
 		public TestUtil()
 		{

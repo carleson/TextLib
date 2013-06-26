@@ -1,10 +1,8 @@
 ﻿/*
  * Created by SharpDevelop.
- * User: a491259
+ * User: carleson
  * Date: 2013-06-25
  * Time: 16:02
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using System.Linq;
@@ -15,9 +13,9 @@ namespace TextLib.Numbers
 	/// <summary>
 	/// Description of Number.
 	/// </summary>
-	public class Number //: TextLib.Textlib
+	public class Number  : TextLib.Textlib
 	{
-		public string Text;
+		//public string Text;
 		
 		public Number(string text)
 		{
@@ -68,7 +66,7 @@ namespace TextLib.Numbers
 		public IEnumerable<int> Lt(int maxValue)
 		{		
 			var lowNums = from n in Numbers
-        	where n > maxValue 
+        	where n < maxValue 
         	select n; 
 			
 			return lowNums;
