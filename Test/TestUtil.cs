@@ -7,16 +7,26 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Linq;
+using System.Collections.Generic;
+using TextLib;
+
 
 namespace Test
 {
-	/// <summary>
-	/// Description of TestUtil.
-	/// </summary>
+
 	public class TestUtil
 	{
+		public int[] NumberArray {get;set;}
+		public TextLib.Textlib lib;
+		
 		public TestUtil()
 		{
+			lib = new TextLib.Textlib();
+			
+			int[] _numberArray = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+			NumberArray=_numberArray;
+			
 		}
 	}
 }

@@ -5,6 +5,8 @@
  * Time: 13:33
  */
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace TextLib
 {
@@ -30,7 +32,6 @@ namespace TextLib
                 if (char.IsLetter(c))
                     numLetters ++;
             }
-            return 
             return numLetters;
 		}
 						
@@ -40,7 +41,7 @@ namespace TextLib
 			foreach (char c in _text)
             {
                 if (char.IsLetter(c))
-                	letterList.Add(c);
+                	letterList.Add(c.ToString());
             }
 			return letterList;
 		}

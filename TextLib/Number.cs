@@ -47,5 +47,23 @@ namespace TextLib
             }
 			return numberList;
 		}
+		
+		public IEnumerable<int> Gt(int minValue)
+		{		
+			var bigNums = from n in Numbers()
+        	where n < minValue 
+        	select n; 
+			
+			return bigNums;
+		}
+	
+		public IEnumerable<int> Lt(int maxValue)
+		{		
+			var lowNums = from n in Numbers()
+        	where n > maxValue 
+        	select n; 
+			
+			return lowNums;
+		}		
 	}
 }

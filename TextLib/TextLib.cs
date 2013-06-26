@@ -26,15 +26,25 @@ namespace TextLib
 			_text = text;
 		}
 		
+		public Textlib()
+		{
+			Init();
+		}
+		
 		public Textlib(string text)
 		{
 			_text = text;
+			Init();
+		}
+		
+		private void Init()
+		{
 			word = new Word(this);
 			letter = new Letter(this);
 			convert = new Convert(this);
-			number = new Number(this);
+			number = new Number(this);	
 		}
-		
+
 		public string Text
 		{
 			get

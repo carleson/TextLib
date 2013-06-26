@@ -7,16 +7,30 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using NUnit.Framework;
 
 namespace Test.Number
 {
-	/// <summary>
-	/// Description of Gt.
-	/// </summary>
-	public class Gt
+
+	[TestFixture]
+	public class Gt:TestUtil
 	{
 		public Gt()
 		{
+		}
+		
+		[SetUp]
+		public void init()
+		{
+			lib.Load("test");
+		}
+
+		[Test]
+		public void test1()
+		{
+			string actual = "John Roe Doe";
+            string expected = "John Roe Doe";
+            Assert.AreEqual(expected, actual, "The GetFullName returned a different Value");
 		}
 	}
 }
