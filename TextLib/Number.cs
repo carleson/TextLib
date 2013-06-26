@@ -15,19 +15,18 @@ namespace TextLib
 	/// <summary>
 	/// Description of Number.
 	/// </summary>
-	public class Number
+	public class Number : TextLib.Textlib
 	{
 		private string _text;
-		
-		public Number(TextLib.Textlib lib)
+			
+		public Number()
 		{
-			_text = lib.Text;
 		}
 		
 		public int Count()
 		{
             int numNumbers = 0;
-            foreach (char c in _text)
+            foreach (char c in base.Text)
             {
                 if (char.IsNumber(c))
                     numNumbers ++;
@@ -40,7 +39,7 @@ namespace TextLib
 		public List<int> Numbers()
 		{
 			List<int> numberList = new List<int>();
-			foreach (char c in _text)
+			foreach (char c in base.Text)
             {
                 if (char.IsNumber(c))
                 	numberList.Add(c);

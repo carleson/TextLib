@@ -8,6 +8,9 @@
  */
 using System;
 using NUnit.Framework;
+using System.Linq;
+using System.Collections.Generic;
+
 
 namespace Test.Number
 {
@@ -15,6 +18,8 @@ namespace Test.Number
 	[TestFixture]
 	public class Gt:TestUtil
 	{
+		IEnumerable<int> list;
+		
 		public Gt()
 		{
 		}
@@ -22,15 +27,14 @@ namespace Test.Number
 		[SetUp]
 		public void init()
 		{
-			lib.Load("test");
+			lib.Load("abc13lmn5890v");
+			list = lib.number.Gt(5);
 		}
 
 		[Test]
-		public void test1()
+		public void GetTheRightElements()
 		{
-			string actual = "John Roe Doe";
-            string expected = "John Roe Doe";
-            Assert.AreEqual(expected, actual, "The GetFullName returned a different Value");
+			Assert.IsTrue(list.Count() == 2);
 		}
 	}
 }

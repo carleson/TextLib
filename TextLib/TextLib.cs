@@ -42,14 +42,21 @@ namespace TextLib
 			word = new Word(this);
 			letter = new Letter(this);
 			convert = new Convert(this);
-			number = new Number(this);	
+			number = new Number();	
 		}
 
 		public string Text
 		{
 			get
 			{
-				return _text;
+				if ( _text != null)
+				{
+					return _text;
+				}
+				else
+				{
+					return string.Empty;
+				}
 			}
 		}
 		

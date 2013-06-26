@@ -18,11 +18,11 @@ namespace Test
 	public class TestUtil
 	{
 		public int[] NumberArray {get;set;}
-		public TextLib.Textlib lib;
+		public Textlib lib;
 		
 		public TestUtil()
 		{
-			lib = new TextLib.Textlib();
+			lib = new Textlib();
 			
 			int[] _numberArray = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 			NumberArray=_numberArray;

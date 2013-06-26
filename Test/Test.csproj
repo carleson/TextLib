@@ -48,11 +48,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Letter" />
+    <Folder Include="Convert" />
+    <Folder Include="TextLib" />
+    <Folder Include="Word" />
     <Folder Include="Number" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Number\Gt.cs" />
     <Compile Include="TestUtil.cs" />
+    <Compile Include="TextLib\Length.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
