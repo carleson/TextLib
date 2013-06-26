@@ -10,15 +10,17 @@ using System;
 using NUnit.Framework;
 using System.Linq;
 using System.Collections.Generic;
+using TextLib.Numbers;
+using System.Diagnostics;
 
-
-namespace Test.Number
+namespace Test
 {
 
 	[TestFixture]
-	public class Gt:TestUtil
+	public class Gt //:TestUtil
 	{
 		IEnumerable<int> list;
+		Number nr;
 		
 		public Gt()
 		{
@@ -27,13 +29,18 @@ namespace Test.Number
 		[SetUp]
 		public void init()
 		{
-			lib.Load("abc13lmn5890v");
-			list = lib.number.Gt(5);
+			nr = new Number("abc13lmn5890v");
+			list= nr.Gt(5);
+//			
+//			lib.Load("abc13lmn5890v");
+//			list = lib.number.Gt(5);
+			
 		}
 
 		[Test]
 		public void GetTheRightElements()
 		{
+			Debug.Print(string.Format("{0}",list.Count()));
 			Assert.IsTrue(list.Count() == 2);
 		}
 	}

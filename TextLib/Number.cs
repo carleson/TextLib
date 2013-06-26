@@ -10,23 +10,24 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace TextLib
+namespace TextLib.Numbers
 {
 	/// <summary>
 	/// Description of Number.
 	/// </summary>
-	public class Number : TextLib.Textlib
+	public class Number //: TextLib.Textlib
 	{
-		private string _text;
-			
-		public Number()
+		public string Text;
+		
+		public Number(string text)
 		{
+			Text=text;
 		}
 		
 		public int Count()
 		{
             int numNumbers = 0;
-            foreach (char c in base.Text)
+            foreach (char c in Text)
             {
                 if (char.IsNumber(c))
                     numNumbers ++;
@@ -36,21 +37,29 @@ namespace TextLib
 		}
 			
 				
-		public List<int> Numbers()
+		public List<int> Numbers
 		{
-			List<int> numberList = new List<int>();
-			foreach (char c in base.Text)
-            {
-                if (char.IsNumber(c))
-                	numberList.Add(c);
-            }
-			return numberList;
+			get
+			{
+				List<int> numberList = new List<int>();
+				foreach (char c in Text)
+	            {
+	                if (char.IsNumber(c))
+	                {
+	                	int value = Int32.Parse(c.ToString());
+	                	numberList.Add(value);
+	                }
+	                	
+	            }
+				return numberList;
+			}
+			
 		}
 		
 		public IEnumerable<int> Gt(int minValue)
 		{		
-			var bigNums = from n in Numbers()
-        	where n < minValue 
+			var bigNums = from n in Numbers
+        	where n > minValue 
         	select n; 
 			
 			return bigNums;
@@ -58,7 +67,7 @@ namespace TextLib
 	
 		public IEnumerable<int> Lt(int maxValue)
 		{		
-			var lowNums = from n in Numbers()
+			var lowNums = from n in Numbers
         	where n > maxValue 
         	select n; 
 			

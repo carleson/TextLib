@@ -19,7 +19,6 @@ namespace TextLib
 		public Word word {get; private set;}
 		public Letter letter {get; private set;}
 		public Convert convert {get;private set;}
-		public Number number {get;set;}
 		
 		public void Load(string text)
 		{
@@ -28,7 +27,7 @@ namespace TextLib
 		
 		public Textlib()
 		{
-			Init();
+			//Init();
 		}
 		
 		public Textlib(string text)
@@ -42,7 +41,7 @@ namespace TextLib
 			word = new Word(this);
 			letter = new Letter(this);
 			convert = new Convert(this);
-			number = new Number();	
+			//number = new Number();	
 		}
 
 		public string Text
@@ -58,9 +57,13 @@ namespace TextLib
 					return string.Empty;
 				}
 			}
+			set
+			{
+				_text=value;
+			}
 		}
 		
-		public int Length
+		public  int Length
 		{
 			get
 			{
