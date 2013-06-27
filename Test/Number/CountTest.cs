@@ -29,11 +29,31 @@ namespace NumberTest
 		}
 
 		[Test]
-		public void CountNumbersAndLetters()
+		public void CountNumbers()
 		{
 			Assert.IsTrue(_number.Count == 5);
 		}
 		
+		[Test]
+		public void CountNumbersAndLetters()
+		{
+			_number = new Number(NumbersAndLetters);
+			Assert.IsTrue(_number.Count == 6);
+		}
+		
+		[Test]
+		public void CountZeroNumbers()
+		{
+			_number = new Number("ABC");
+			Assert.IsTrue(_number.Count == 0);
+		}
+	
+		[Test]
+		public void CountNullNumbers()
+		{
+			_number = new Number(null);
+			Assert.IsTrue(_number.Count == 0);
+		}
 	
 	}
 }

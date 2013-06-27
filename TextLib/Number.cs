@@ -13,13 +13,21 @@ namespace TextLib.Numbers
 	/// <summary>
 	/// Description of Number.
 	/// </summary>
-	public class Number  : TextLib.Textlib
+	public class Number  : TextLib.IText
 	{
-		List<int> _numbers;
+		private List<int> _numbers;
+		private string _text;
 		
 		public Number(string text)
 		{
-			Text=text;
+			if (text != null)
+			{
+				_text = text;
+			}
+			else
+			{
+				_text=string.Empty;
+			}
 			_numbers = GetNumbers();
 		}
 		
@@ -72,5 +80,21 @@ namespace TextLib.Numbers
 			
 			return lowNums;
 		}		
+		
+		public string Text 
+		{
+			get { return _text;	}
+		}
+		
+		public int SizeInBytes {
+			get {
+				throw new NotImplementedException();
+			}
+		}
+		
+		public void Sort()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

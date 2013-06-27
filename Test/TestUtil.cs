@@ -20,7 +20,6 @@ namespace Test
 	public class TestUtil
 	{
 		public int[] NumberArray {get;set;}
-		public Textlib lib;
 		public Number _number;
 		public Letter _letter;
 		
@@ -32,7 +31,6 @@ namespace Test
 		
 		public TestUtil()
 		{
-			lib = new Textlib();
 			
 			int[] _numberArray = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 			NumberArray=_numberArray;
