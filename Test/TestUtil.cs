@@ -21,6 +21,9 @@ namespace Test
 		public Textlib lib;
 		public Number _number;
 		
+		public const string NumbersAndLetters = "abc13lmn5890v";
+		public IEnumerable<int> list;
+		
 		public TestUtil()
 		{
 			lib = new Textlib();

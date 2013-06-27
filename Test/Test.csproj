@@ -55,7 +55,9 @@
     <Folder Include="Number" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Number\Gt.cs" />
+    <Compile Include="Number\GtTest.cs" />
+    <Compile Include="Number\LtTest.cs" />
+    <Compile Include="Number\NumbersTest.cs" />
     <Compile Include="TestUtil.cs" />
     <Compile Include="TextLib\Length.cs" />
   </ItemGroup>

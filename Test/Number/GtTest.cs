@@ -15,18 +15,17 @@ namespace NumberTest
 {
 
 	[TestFixture]
-	public class Gt : Test.TestUtil
+	public class GtTest : Test.TestUtil
 	{
-		IEnumerable<int> list;
 		
-		public Gt()
+		public GtTest()
 		{
 		}
 		
 		[SetUp]
 		public void init()
 		{
-			_number = new Number("abc13lmn5890v");
+			_number = new Number(NumbersAndLetters);
 			list= _number.Gt(5);	
 		}
 
@@ -37,18 +36,6 @@ namespace NumberTest
 			Assert.IsTrue(list.Count() == 2);
 		}
 		
-		[Test]
-		public void GetNumbers()
-		{
-			Assert.IsTrue(_number.Numbers.Count==6);
-		}
-		
-		[Test]
-		public void GetZeroNumbers()
-		{
-			_number = new Number("abcd");
-			Assert.IsTrue(_number.Numbers.Count==0);
-		}
-		
+	
 	}
 }
