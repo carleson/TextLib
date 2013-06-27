@@ -30,6 +30,13 @@ namespace TextLib.Numbers
 			}
 			_numbers = GetNumbers();
 		}
+			
+		
+#region Properties
+		public string Text 
+		{
+			get { return _text;	}
+		}
 		
 		public List<int> Numbers
 		{
@@ -47,7 +54,17 @@ namespace TextLib.Numbers
 			}
 		}
 			
-				
+		
+		public int SizeInBytes {
+			get {
+				throw new NotImplementedException();
+			}
+		}
+	
+#endregion
+
+#region Private methods
+
 		private List<int> GetNumbers()
 		{
 			List<int> numberList = new List<int>();
@@ -63,6 +80,10 @@ namespace TextLib.Numbers
 			return numberList;
 		}
 		
+#endregion
+
+#region Public methods
+
 		public IEnumerable<int> Gt(int minValue)
 		{		
 			var bigNums = from n in Numbers
@@ -79,22 +100,13 @@ namespace TextLib.Numbers
         	select n; 
 			
 			return lowNums;
-		}		
-		
-		public string Text 
-		{
-			get { return _text;	}
-		}
-		
-		public int SizeInBytes {
-			get {
-				throw new NotImplementedException();
-			}
-		}
+		}	
 		
 		public void Sort()
 		{
 			throw new NotImplementedException();
 		}
+#endregion
+
 	}
 }

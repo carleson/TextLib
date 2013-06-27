@@ -32,6 +32,12 @@ namespace TextLib.Letters
 			
 			_letters = GetLetters();
 		}
+
+#region Properties
+		public string Text 
+		{
+			get {return _text;}
+		}
 		
 		public List<string> Letters
 		{
@@ -40,12 +46,21 @@ namespace TextLib.Letters
 				return _letters;
 			}
 		}
+				
+		public int SizeInBytes 
+		{
+			get {
+				throw new NotImplementedException();
+			}
+		}		
 		
 		public int Count
 		{
 			get	{return Letters.Count;	}
 		}
-						
+#endregion
+
+#region Private Methods
 		private List<string> GetLetters()
 		{
 			List<string> letterList = new List<string>();
@@ -56,24 +71,16 @@ namespace TextLib.Letters
             }
 			return letterList;
 		}
+#endregion
 
-		
-		public string Text 
-		{
-			get {return _text;}
-		}
-		
-		public int SizeInBytes 
-		{
-			get {
-				throw new NotImplementedException();
-			}
-		}
-		
+#region Public Methods
 		public void Sort()
 		{
 			List<string> lista = Letters;
 			_letters = lista;
 		}
+#endregion
+
+
 	}
 }

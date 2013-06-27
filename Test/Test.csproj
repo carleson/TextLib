@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Letter" />
-    <Folder Include="Convert" />
+    <Folder Include="Web" />
     <Folder Include="Word" />
     <Folder Include="Number" />
   </ItemGroup>
@@ -60,6 +60,8 @@
     <Compile Include="Number\LtTest.cs" />
     <Compile Include="Number\NumbersTest.cs" />
     <Compile Include="TestUtil.cs" />
+    <Compile Include="Web\LinksTest.cs" />
+    <Compile Include="Word\CountTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

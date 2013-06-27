@@ -9,9 +9,10 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using TextLib;
 using TextLib.Numbers;
 using TextLib.Letters;
+using TextLib.Words;
+using TextLib.Web;
 
 
 namespace Test
@@ -22,6 +23,8 @@ namespace Test
 		public int[] NumberArray {get;set;}
 		public Number _number;
 		public Letter _letter;
+		public Word	_word;
+		public Web _web;
 		
 		public const string NumbersAndLetters = "abc13lmn5890v";
 		public const string FiveNumbers = "adrw579dert19";

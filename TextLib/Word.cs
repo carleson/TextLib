@@ -8,7 +8,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace TextLib
+namespace TextLib.Words
 {
 	/// <summary>
 	/// Description of Word.
@@ -32,16 +32,72 @@ namespace TextLib
 			_words=GetWords();
 		}
 
+#region Properties	
 
+		public string Text 
+		{
+			get { return _text;	}
+		}
 		
+				public List<string> Words
+		{
+			get
+			{
+				return _words;
+			}
+		}
+		
+		public int Count
+		{
+			get
+			{
+				return _words.Count;
+			}
+		}
+		
+	
+#endregion
 
-		
+#region Private methods
+
 		private List<string> GetWords()
 		{
 			string[] words = Text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 			return words.ToList();
 		}
+
+#endregion
+
+#region Public methods
+	
+		public int CountParam(string word)
+		{
+			int pos = 0;
+			int count = 0;
+			pos = _text.IndexOf(word);
+			while (pos != -1 && _text.Length >= pos)
+			{
+				count++;
+				pos = _text.IndexOf(word,pos+1);
+			}
+			return count;
+		}
 		
+		public void Sort()
+		{
+			throw new NotImplementedException();
+		}
+		
+		public int SizeInBytes
+		{
+			get
+			{
+				int size = (8 + 4 + 2 + (2 * Text.Length)) + 4 - 1; 
+				size = size/4 * 4;
+				
+				return size;
+			}
+		}
 		
 		public string CommonWords()
 		{
@@ -71,52 +127,8 @@ namespace TextLib
                 count++;
             }
 
-			 Console.WriteLine("Top three most common words: {0}, {1}, {2}", commonWords[0], commonWords[1], commonWords[2]);
 			 string output = string.Format("Top three most common words: {0}, {1}, {2}", commonWords[0], commonWords[1], commonWords[2]);
 			 return output;
-		}
-#region Properties	
-
-		public string Text 
-		{
-			get { return _text;	}
-		}
-		
-				public List<string> Words
-		{
-			get
-			{
-				return _words;
-			}
-		}
-		
-		public int Count
-		{
-			get
-			{
-				return _words.Count;
-			}
-		}
-		
-	
-#endregion
-
-#region Methods
-	
-		public void Sort()
-		{
-			throw new NotImplementedException();
-		}
-		
-		public int SizeInBytes
-		{
-			get
-			{
-				int size = (8 + 4 + 2 + (2 * Text.Length)) + 4 - 1; 
-				size = size/4 * 4;
-				
-				return size;
-			}
 		}
 		
 #endregion
