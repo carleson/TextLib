@@ -55,6 +55,8 @@
     <Folder Include="Number" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Letter\CountTest.cs" />
+    <Compile Include="Number\CountTest.cs" />
     <Compile Include="Number\GtTest.cs" />
     <Compile Include="Number\LtTest.cs" />
     <Compile Include="Number\NumbersTest.cs" />

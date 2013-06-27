@@ -11,6 +11,8 @@ using System.Linq;
 using System.Collections.Generic;
 using TextLib;
 using TextLib.Numbers;
+using TextLib.Letters;
+
 
 namespace Test
 {
@@ -20,8 +22,12 @@ namespace Test
 		public int[] NumberArray {get;set;}
 		public Textlib lib;
 		public Number _number;
+		public Letter _letter;
 		
 		public const string NumbersAndLetters = "abc13lmn5890v";
+		public const string FiveNumbers = "adrw579dert19";
+		public const string FiveLetters = "ad579der19";
+		
 		public IEnumerable<int> list;
 		
 		public TestUtil()

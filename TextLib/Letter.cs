@@ -8,7 +8,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace TextLib
+namespace TextLib.Letters
 {
 	/// <summary>
 	/// Description of Char.
@@ -16,23 +16,32 @@ namespace TextLib
 	public class Letter : TextLib.Textlib
 	{
 		
+		private  List<string> _letters;
+		
 		public Letter(string text)
 		{
 			Text = text;
+			_letters = GetLetters();
 		}
 		
-		public int Count()
+		public List<string> Letters
 		{
-            int numLetters = 0;
-            foreach (char c in Text)
-            {
-                if (char.IsLetter(c))
-                    numLetters ++;
-            }
-            return numLetters;
+			get
+			{
+				return _letters;
+			}
+		}
+		
+		public int Count
+		{
+			get
+			{
+	            return _letters.Count;
+			}
+			
 		}
 						
-		public List<string> Letters()
+		private List<string> GetLetters()
 		{
 			List<string> letterList = new List<string>();
 			foreach (char c in Text)
