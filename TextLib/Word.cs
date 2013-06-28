@@ -39,7 +39,12 @@ namespace TextLib.Words
 			get { return _text;	}
 		}
 		
-				public List<string> Words
+		public IEnumerable<string> List 
+		{
+			get {return _words.AsEnumerable();}
+		}
+					
+		public List<string> Words
 		{
 			get
 			{
@@ -132,6 +137,9 @@ namespace TextLib.Words
 		}
 		
 #endregion
+
+		
+
 
 	}
 }

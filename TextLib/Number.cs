@@ -16,6 +16,8 @@ namespace TextLib.Numbers
 	public class Number  : TextLib.IText
 	{
 		private List<int> _numbers;
+		private IEnumerable<string> _list;
+		
 		private string _text;
 		
 		public Number(string text)
@@ -28,7 +30,8 @@ namespace TextLib.Numbers
 			{
 				_text=string.Empty;
 			}
-			_numbers = GetNumbers();
+			_numbers = GetNumbersAsIntegerList();
+			_list = GetNumbersAsStringList();
 		}
 			
 		
@@ -36,6 +39,12 @@ namespace TextLib.Numbers
 		public string Text 
 		{
 			get { return _text;	}
+		}
+		
+				
+		public IEnumerable<string> List 
+		{
+			get {return _list;}
 		}
 		
 		public List<int> Numbers
@@ -65,7 +74,7 @@ namespace TextLib.Numbers
 
 #region Private methods
 
-		private List<int> GetNumbers()
+		private List<int> GetNumbersAsIntegerList()
 		{
 			List<int> numberList = new List<int>();
 			foreach (char c in Text)
@@ -80,6 +89,20 @@ namespace TextLib.Numbers
 			return numberList;
 		}
 		
+		private IEnumerable<string> GetNumbersAsStringList()
+		{
+			List<string> numberList = new List<string>();
+			foreach (char c in Text)
+            {
+                if (char.IsNumber(c))
+                {
+                	numberList.Add(c.ToString());
+                }
+                	
+            }
+			return numberList.AsEnumerable();
+		}
+				
 #endregion
 
 #region Public methods
@@ -107,6 +130,7 @@ namespace TextLib.Numbers
 			throw new NotImplementedException();
 		}
 #endregion
+
 
 	}
 }

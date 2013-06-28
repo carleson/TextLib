@@ -13,7 +13,7 @@ using TextLib.Numbers;
 using TextLib.Letters;
 using TextLib.Words;
 using TextLib.Web;
-
+using TextLib.Emails;
 
 namespace Test
 {
@@ -25,10 +25,12 @@ namespace Test
 		public Letter _letter;
 		public Word	_word;
 		public Web _web;
+		public Email _email;
 		
 		public const string NumbersAndLetters = "abc13lmn5890v";
 		public const string FiveNumbers = "adrw579dert19";
 		public const string FiveLetters = "ad579der19";
+		public const string OneEmail = "qwert bart@hotmail.com some text";
 		
 		public IEnumerable<int> list;
 		

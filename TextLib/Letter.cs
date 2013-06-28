@@ -17,6 +17,8 @@ namespace TextLib.Letters
 	{
 		
 		private  List<string> _letters;
+		private IEnumerable<string> _list = new List<string>();
+		
 		private string _text;
 		
 		public Letter(string text)
@@ -31,12 +33,19 @@ namespace TextLib.Letters
 			}
 			
 			_letters = GetLetters();
+			_list = _letters.AsEnumerable();
 		}
 
 #region Properties
 		public string Text 
 		{
 			get {return _text;}
+		}
+		
+				
+		public IEnumerable<string> List 
+		{
+			get {return _list;}
 		}
 		
 		public List<string> Letters
@@ -80,6 +89,7 @@ namespace TextLib.Letters
 			_letters = lista;
 		}
 #endregion
+
 
 
 	}

@@ -19,6 +19,7 @@ namespace TextLib.Web
 	{
 		private string _text;
 		private List<string> _links = new List<string>();
+		private IEnumerable<string> _list = new List<string>();
 		
 		public Web(string text)
 		{
@@ -45,6 +46,11 @@ namespace TextLib.Web
 			}
 		}
 		
+		public IEnumerable<string> List 
+		{
+			get {return _links.AsEnumerable();}
+		}
+				
 		public string Text 
 		{
 			get {return _text;}
@@ -83,6 +89,8 @@ private List<string> GetLinks()
 #endregion
 
 
+
+		
 
 	}
 }

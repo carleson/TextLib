@@ -49,11 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Letter" />
+    <Folder Include="Email" />
     <Folder Include="Web" />
     <Folder Include="Word" />
     <Folder Include="Number" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Email\CountTest.cs" />
     <Compile Include="Letter\CountTest.cs" />
     <Compile Include="Number\CountTest.cs" />
     <Compile Include="Number\GtTest.cs" />
