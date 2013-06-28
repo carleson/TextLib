@@ -31,21 +31,21 @@ namespace EmailTest
 		[Test]
 		public void CountOneEmail()
 		{
-			Assert.IsTrue(_email.Count == 1);
+			Assert.IsTrue(_email.Count() == 1);
 		}
 		
 		[Test]
 		public void CountZeroLetters()
 		{
 			_email = new Email(NumbersAndLetters);
-			Assert.IsTrue(_email.Count == 0);
+			Assert.IsTrue(_email.Count() == 0);
 		}
 	
 		[Test]
 		public void CountNullEmails()
 		{
 			_email = new Email(null);
-			Assert.IsTrue(_email.Count == 0);
+			Assert.IsTrue(_email.Count() == 0);
 		}
 		
 	

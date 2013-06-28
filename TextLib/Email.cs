@@ -9,6 +9,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 namespace TextLib.Emails
@@ -19,7 +20,8 @@ namespace TextLib.Emails
 	public class Email : IText
 	{
 		private string _text;
-		private List<string> _emails = new List<string>();
+		private List<string> _list = new List<string>();
+		private List<MailAddress> _emails = new List<MailAddress>();
 		
 		
 		public Email(string text)
@@ -42,11 +44,6 @@ namespace TextLib.Emails
 			get {return _text;}
 		}
 		
-		public int Count 
-		{
-			get {return _emails.Count();}
-		}
-		
 		public int SizeInBytes {
 			get {
 				throw new NotImplementedException();
@@ -55,9 +52,14 @@ namespace TextLib.Emails
 		
 		public IEnumerable<string> List 
 		{
-			get {return _emails.AsEnumerable();}
+			get {return _list.AsEnumerable();}
 		}
 		
+		public IEnumerable<MailAddress> ListMailAddress
+		{
+			get {return _emails.AsEnumerable();}
+		}
+				
 #endregion
 
 #region Private methods
@@ -71,14 +73,28 @@ namespace TextLib.Emails
 		
 		        foreach (Match emailMatch in emailMatches)
 		        {
-		        	_emails.Add(emailMatch.Value);
+		        	_list.Add(emailMatch.Value);
+		        	
+		        	System.Net.Mail.MailAddress a = new System.Net.Mail.MailAddress(emailMatch.Value);
+		        	_emails.Add(a);
 		        }
 		    }
 #endregion
+
+#region Public methods
+
+		public int Count()
+		{
+			return _list.Count();
+		}
+		
 		public void Sort()
 		{
 			//return List.OrderByDescending();
 		}
+		
+#endregion
+
 		
 
 	}

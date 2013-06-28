@@ -31,28 +31,28 @@ namespace LetterTest
 		[Test]
 		public void CountLetters()
 		{
-			Assert.IsTrue(_letter.Count == 5);
+			Assert.IsTrue(_letter.Count() == 5);
 		}
 		
 		[Test]
 		public void CountNumbersAndLetters()
 		{
 			_letter = new Letter(NumbersAndLetters);
-			Assert.IsTrue(_letter.Count == 7);
+			Assert.IsTrue(_letter.Count() == 7);
 		}
 		
 		[Test]
 		public void CountZeroLetters()
 		{
 			_letter = new Letter("123");
-			Assert.IsTrue(_letter.Count == 0);
+			Assert.IsTrue(_letter.Count() == 0);
 		}
 	
 		[Test]
 		public void CountNullLetters()
 		{
 			_letter = new Letter(null);
-			Assert.IsTrue(_letter.Count == 0);
+			Assert.IsTrue(_letter.Count() == 0);
 		}
 		
 	

@@ -7,6 +7,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Security.AccessControl;
 
 namespace TextLib.Words
 {
@@ -52,15 +53,7 @@ namespace TextLib.Words
 			}
 		}
 		
-		public int Count
-		{
-			get
-			{
-				return _words.Count;
-			}
-		}
-		
-	
+
 #endregion
 
 #region Private methods
@@ -75,17 +68,20 @@ namespace TextLib.Words
 
 #region Public methods
 	
-		public int CountParam(string word)
+		public bool Exists(string value)
 		{
-			int pos = 0;
-			int count = 0;
-			pos = _text.IndexOf(word);
-			while (pos != -1 && _text.Length >= pos)
-			{
-				count++;
-				pos = _text.IndexOf(word,pos+1);
-			}
-			return count;
+			return _words.Any(s => s.Contains(value));
+		}
+		
+		public int Count()
+		{
+			return _words.Count();
+		}
+				
+		public int Count(string word)
+		{
+			int hits = (from w in _words where w == word select w).Count();
+			return hits;	
 		}
 		
 		public void Sort()

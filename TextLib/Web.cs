@@ -56,12 +56,6 @@ namespace TextLib.Web
 			get {return _text;}
 		}
 		
-		public int Count {
-			get {
-				throw new NotImplementedException();
-			}
-		}
-		
 		public int SizeInBytes {
 			get {
 				throw new NotImplementedException();
@@ -82,6 +76,12 @@ private List<string> GetLinks()
 	#endregion
 
 #region Public methods
+
+		public int Count()
+		{
+			return _list.Count();
+		}
+		
 		public void Sort()
 		{
 			throw new NotImplementedException();

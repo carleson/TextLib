@@ -54,14 +54,6 @@ namespace TextLib.Numbers
 				return _numbers;
 			}
 		}
-		
-		public int Count
-		{
-			get
-			{			
-	            return Numbers.Count;
-			}
-		}
 			
 		
 		public int SizeInBytes {
@@ -107,6 +99,11 @@ namespace TextLib.Numbers
 
 #region Public methods
 
+		public int Count()
+		{
+			return _list.Count();
+		}
+		
 		public IEnumerable<int> Gt(int minValue)
 		{		
 			var bigNums = from n in Numbers

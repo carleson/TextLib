@@ -63,10 +63,7 @@ namespace TextLib.Letters
 			}
 		}		
 		
-		public int Count
-		{
-			get	{return Letters.Count;	}
-		}
+
 #endregion
 
 #region Private Methods
@@ -88,6 +85,12 @@ namespace TextLib.Letters
 			List<string> lista = Letters;
 			_letters = lista;
 		}
+		
+		public int Count()
+		{
+			return _list.Count();
+		}
+		
 #endregion
 
 

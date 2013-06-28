@@ -33,6 +33,13 @@ namespace WordTest
 			//Assert.IsTrue(_word.
 		}
 		
+		[Test]
+		public void CountSpecificWord()
+		{
+			Assert.IsTrue(_word.Count("banana") ==2);
+			Assert.IsTrue(_word.Count("apple") ==1);
+			Assert.IsTrue(_word.Count("apples") ==0);
+		}
 
 		
 	}

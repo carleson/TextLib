@@ -21,11 +21,6 @@ namespace TextLib
 		{
 			get;
 		}
-		
-		int Count
-	    {
-	        get;
-	    }
 	
 		IEnumerable<string> List
 		{
@@ -38,6 +33,9 @@ namespace TextLib
 		}
 		
 		void Sort();
+		
+		int Count();
+		
 		    
 	}
 }
