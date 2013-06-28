@@ -38,6 +38,14 @@ namespace TextLib.Web
 		
 #region Properties
 
+		public string PlainText
+		{
+			get
+			{
+				HtmlToText html = new HtmlToText();
+				return html.Convert(Text);
+			}
+		}
 		public List<string> Links
 		{
 			get
