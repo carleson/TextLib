@@ -62,6 +62,7 @@
     <Compile Include="Number\LtTest.cs" />
     <Compile Include="Number\NumbersTest.cs" />
     <Compile Include="TestUtil.cs" />
+    <Compile Include="Web\IPadressTest.cs" />
     <Compile Include="Web\LinksTest.cs" />
     <Compile Include="Word\CountTest.cs" />
   </ItemGroup>

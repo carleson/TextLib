@@ -9,6 +9,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace TextLib.Web
 {
@@ -54,6 +55,47 @@ namespace TextLib.Web
 			}
 		}
 		
+		public List<string> Email()
+		{
+			string emailPattern = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+			return RegExpList(emailPattern);
+		}
+		public List<string> HostNames()
+		{
+			string hostNamePattern = @"^[\-\w]+\.)+[a-zA-Z]{2,4}$";
+			return RegExpList(hostNamePattern);
+		}
+		public List<string> Ipadress()
+		{
+			string ipadressPattern = @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b";
+			return RegExpList(ipadressPattern);
+		}
+		
+		public List<string> RegExpList(string reg)
+		{
+			List<string> regexpList = new List<string>();
+			
+			try
+			{
+		        Regex IpadressRegex = new Regex(reg,RegexOptions.IgnoreCase);
+		        //find items that matche@s with our pattern
+		        MatchCollection matches = IpadressRegex.Matches(Text);
+		
+		        foreach (Match MyMatche in matches)
+		        {
+		        	regexpList.Add(MyMatche.Value);
+		        }
+		        return regexpList;
+			}
+			   
+			catch(Exception ex)
+			{
+				return null;
+			}
+		    
+			//^([0-2]?[0-5]?[0-5]\.){3}[0-2]?[0-5]?[0-5]$
+		}
+				
 		public IEnumerable<string> List 
 		{
 			get {return _links.AsEnumerable();}

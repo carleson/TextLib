@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Security.AccessControl;
+using System.Text.RegularExpressions;
 
 namespace TextLib.Words
 {
@@ -84,6 +85,43 @@ namespace TextLib.Words
 			return hits;	
 		}
 		
+		public List<string> GetAllCaps()
+		{
+			List<string> hitList = new List<string>();
+			string regexp = @"(\b[^\Wa-z0-9_]+\b)";
+			MatchCollection matches = Regex.Matches(_text, regexp);
+			foreach (Match MyMatche in matches)
+	        {
+	        	hitList.Add(MyMatche.Value);
+	        }
+					        
+			return hitList;
+		}
+		
+		public List<string> GetAllLowerCase()
+		{
+			string regexp = @"(\b[^\WA-Z0-9_]+\b)";
+			List<string> hitList = new List<string>();
+			MatchCollection matches = Regex.Matches(_text, regexp);
+						foreach (Match MyMatche in matches)
+	        {
+	        	hitList.Add(MyMatche.Value);
+	        }
+			return hitList;
+		}
+
+		public List<string> GetAllInitialCaps()
+		{
+			string regexp = @"(\b[^\Wa-z0-9_][^\WA-Z0-9_]*\b)";
+			List<string> hitList = new List<string>();
+			MatchCollection matches = Regex.Matches(_text, regexp);
+			foreach (Match MyMatche in matches)
+	        {
+	        	hitList.Add(MyMatche.Value);
+	        }
+			return hitList;
+		}		
+
 		public void Sort()
 		{
 			throw new NotImplementedException();
