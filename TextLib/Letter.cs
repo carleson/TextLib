@@ -13,7 +13,7 @@ namespace TextLib.Letters
 	/// <summary>
 	/// Description of Char.
 	/// </summary>
-	public class Letter : TextLib.IText
+	public class Letter : TextLib.IText, ILetter
 	{
 		
 		private  List<string> _letters;

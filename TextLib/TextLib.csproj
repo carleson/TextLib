@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Email.cs" />
+    <Compile Include="ILetter.cs" />
     <Compile Include="IText.cs" />
     <Compile Include="Letter.cs" />
     <Compile Include="Number.cs" />
