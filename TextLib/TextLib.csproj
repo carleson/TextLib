@@ -42,10 +42,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ILetter.cs" />
-    <Compile Include="INumbers.cs" />
-    <Compile Include="IText.cs" />
-    <Compile Include="IWeb.cs" />
+    <Compile Include="Interface\ILetter.cs" />
+    <Compile Include="Interface\INumbers.cs" />
+    <Compile Include="Interface\IText.cs" />
+    <Compile Include="Interface\IWeb.cs" />
     <Compile Include="Letter.cs" />
     <Compile Include="Number.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,6 +54,7 @@
     <Compile Include="Web.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Interface" />
     <Folder Include="Tools" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
