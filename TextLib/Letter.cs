@@ -22,7 +22,7 @@ namespace TextLib.Letters
 		{
 			base.Source = text;
 			_letters = GetLetters();
-			List = _letters.AsEnumerable();
+			List = _letters;
 		}
 
 #region Properties

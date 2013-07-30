@@ -9,9 +9,7 @@ using System.Collections.Generic;
 
 namespace TextLib
 {
-	/// <summary>
-	/// Description of IWeb.
-	/// </summary>
+
 	public interface IWeb
 	{
 		

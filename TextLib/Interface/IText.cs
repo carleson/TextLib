@@ -16,15 +16,13 @@ namespace TextLib
 		//Properties
 		string Source {get;set;}
 		
-		IEnumerable<string> List {get;set;}
+		List<string> List {get;set;}
+		int SizeInBytes	{get;}
 		
 		//methods
-		int SizeInBytes
-		{
-			get;
-		}
-		
-	
+		int Count();		
+		int Count(string word);
+		bool Exist(string value);
 		    
 	}
 }

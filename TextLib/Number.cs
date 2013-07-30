@@ -55,7 +55,7 @@ namespace TextLib.Numbers
 			return numberList;
 		}
 		
-		private IEnumerable<string> GetNumbersAsStringList()
+		private List<string> GetNumbersAsStringList()
 		{
 			List<string> numberList = new List<string>();
 			foreach (char c in Source)
@@ -66,7 +66,7 @@ namespace TextLib.Numbers
                 }
                 	
             }
-			return numberList.AsEnumerable();
+			return numberList;
 		}
 				
 #endregion

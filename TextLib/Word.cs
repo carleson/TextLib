@@ -22,7 +22,7 @@ namespace TextLib.Words
 		public Word(string text)
 		{
 			base.Source=text;
-			base.List=GetWords().AsEnumerable();
+			base.List=GetWords();
 		}
 
 #region Properties	
@@ -50,17 +50,12 @@ namespace TextLib.Words
 
 #region Public methods
 	
-		public bool Exists(string value)
-		{
-			return _words.Any(s => s.Contains(value));
-		}
+//		public bool Exists(string value)
+//		{
+//			return _words.Any(s => s.Contains(value));
+//		}
 		
-			
-		public int Count(string word)
-		{
-			int hits = (from w in _words where w == word select w).Count();
-			return hits;	
-		}
+
 		
 		public List<string> GetAllCaps()
 		{

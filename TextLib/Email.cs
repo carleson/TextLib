@@ -26,7 +26,7 @@ namespace TextLib.Emails
 		{
 			base.Source=text;
 			ExtractEmails();
-			base.List = _list.AsEnumerable();
+			base.List = _list;
 		}
 		
 #region Properties

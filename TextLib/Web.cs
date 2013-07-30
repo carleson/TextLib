@@ -21,7 +21,7 @@ namespace TextLib.Web
 		public Web(string text)
 		{
 			base.Source = text;
-			base.List =GetLinks().AsEnumerable();
+			base.List = GetLinks();
 		}
 		
 #region Properties

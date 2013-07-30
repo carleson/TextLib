@@ -9,9 +9,6 @@ using System.Collections.Generic;
 
 namespace TextLib
 {
-	/// <summary>
-	/// Description of IWord.
-	/// </summary>
 	public interface IWord
 	{
 		bool Exists(string value);

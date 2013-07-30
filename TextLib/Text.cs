@@ -1,12 +1,11 @@
 ﻿/*
  * Created by SharpDevelop.
- * User: a491259
+ * User: Carleson
  * Date: 2013-07-29
  * Time: 10:23
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace TextLib
@@ -21,7 +20,7 @@ namespace TextLib
 		}
 		
 			
-		public IEnumerable<string> List {get;set;}
+		public List<string> List {get;set;}
 
 		private string _source;
 		
@@ -58,7 +57,20 @@ namespace TextLib
 
 		public int Count()
 		{
-			return new List<string>(List).Count;
+			return List.Count;
 		}
+		
+					
+		public int Count(string word)
+		{
+			int hits = (from w in List where w == word select w).Count();
+			return hits;	
+		}
+		
+		public bool Exists(string value)
+		{
+			return List.Any(s => s.Contains(value));
+		}
+		
 	}
 }
