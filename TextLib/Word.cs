@@ -36,10 +36,7 @@ namespace TextLib.Words
 
 #region Properties	
 
-		public string Text 
-		{
-			get { return _text;	}
-		}
+		public string String {get;set;}
 		
 		public IEnumerable<string> List 
 		{
@@ -61,7 +58,7 @@ namespace TextLib.Words
 
 		private List<string> GetWords()
 		{
-			string[] words = Text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+			string[] words = String.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 			return words.ToList();
 		}
 
@@ -131,7 +128,7 @@ namespace TextLib.Words
 		{
 			get
 			{
-				int size = (8 + 4 + 2 + (2 * Text.Length)) + 4 - 1; 
+				int size = (8 + 4 + 2 + (2 * String.Length)) + 4 - 1; 
 				size = size/4 * 4;
 				
 				return size;
@@ -140,7 +137,7 @@ namespace TextLib.Words
 		
 		public string CommonWords()
 		{
-			string[] words = Text.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+			string[] words = String.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 
             // Most common words
             var dictionary = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);

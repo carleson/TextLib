@@ -39,10 +39,7 @@ namespace TextLib.Emails
 		
 #region Properties
 
-		public string Text 
-		{
-			get {return _text;}
-		}
+		public string String {get;set;}
 		
 		public int SizeInBytes {
 			get {
@@ -69,7 +66,7 @@ namespace TextLib.Emails
 		        Regex emailRegex = new Regex(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*",
 		            RegexOptions.IgnoreCase);
 		        //find items that matches with our pattern
-		        MatchCollection emailMatches = emailRegex.Matches(Text);
+		        MatchCollection emailMatches = emailRegex.Matches(String);
 		
 		        foreach (Match emailMatch in emailMatches)
 		        {

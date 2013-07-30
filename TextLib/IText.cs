@@ -17,25 +17,19 @@ namespace TextLib
 	/// </summary>
 	public interface IText
 	{
-		string Text
-		{
-			get;
-		}
-	
-		IEnumerable<string> List
-		{
-			get;
-		}
 		
+		//Properties
+		string Source {get;set;}
+		
+		IEnumerable<string> List {get;set;}
+		
+		//methods
 		int SizeInBytes
 		{
 			get;
 		}
 		
-		void Sort();
-		
-		int Count();
-		
+	
 		    
 	}
 }

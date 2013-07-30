@@ -13,40 +13,19 @@ namespace TextLib.Letters
 	/// <summary>
 	/// Description of Char.
 	/// </summary>
-	public class Letter : TextLib.IText, ILetter
+	public class Letter : TextLib.Text, ILetter
 	{
 		
 		private  List<string> _letters;
-		private IEnumerable<string> _list = new List<string>();
-		
-		private string _text;
 		
 		public Letter(string text)
 		{
-			if (text != null)
-			{
-				_text = text;
-			}
-			else
-			{
-				_text=string.Empty;
-			}
-			
+			Source = text;
 			_letters = GetLetters();
-			_list = _letters.AsEnumerable();
+			List = _letters.AsEnumerable();
 		}
 
 #region Properties
-		public string Text 
-		{
-			get {return _text;}
-		}
-		
-				
-		public IEnumerable<string> List 
-		{
-			get {return _list;}
-		}
 		
 		public List<string> Letters
 		{
@@ -55,14 +34,7 @@ namespace TextLib.Letters
 				return _letters;
 			}
 		}
-				
-		public int SizeInBytes 
-		{
-			get {
-				throw new NotImplementedException();
-			}
-		}		
-		
+
 
 #endregion
 
@@ -70,7 +42,7 @@ namespace TextLib.Letters
 		private List<string> GetLetters()
 		{
 			List<string> letterList = new List<string>();
-			foreach (char c in Text)
+			foreach (char c in Source)
             {
                 if (char.IsLetter(c))
                 	letterList.Add(c.ToString());
@@ -80,6 +52,7 @@ namespace TextLib.Letters
 #endregion
 
 #region Public Methods
+
 		public void Sort()
 		{
 			List<string> lista = Letters;
@@ -88,10 +61,11 @@ namespace TextLib.Letters
 		
 		public int Count()
 		{
-			return _list.Count();
+			return List.Count();
 		}
-		
+			
 #endregion
+
 
 
 

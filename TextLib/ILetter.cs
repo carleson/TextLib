@@ -17,14 +17,11 @@ namespace TextLib
 	/// </summary>
 	public interface ILetter
 	{
-		
-		IEnumerable<string> List
-		{
-			get;
-		}
-				
-		int Count();
+
+		List<string> Letters{get;}
+			
 		void Sort();
+		int Count();
 		
 	}
 }

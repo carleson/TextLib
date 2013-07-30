@@ -44,7 +44,7 @@ namespace TextLib.Web
 			get
 			{
 				HtmlToText html = new HtmlToText();
-				return html.Convert(Text);
+				return html.Convert(String);
 			}
 		}
 		public List<string> Links
@@ -79,7 +79,7 @@ namespace TextLib.Web
 			{
 		        Regex IpadressRegex = new Regex(reg,RegexOptions.IgnoreCase);
 		        //find items that matche@s with our pattern
-		        MatchCollection matches = IpadressRegex.Matches(Text);
+		        MatchCollection matches = IpadressRegex.Matches(String);
 		
 		        foreach (Match MyMatche in matches)
 		        {
@@ -101,10 +101,7 @@ namespace TextLib.Web
 			get {return _links.AsEnumerable();}
 		}
 				
-		public string Text 
-		{
-			get {return _text;}
-		}
+		public string String {get;set;}
 		
 		public int SizeInBytes {
 			get {
@@ -117,7 +114,7 @@ namespace TextLib.Web
 
 private List<string> GetLinks()
 {
-	var links = Text.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.StartsWith("http://") || s.StartsWith("www."));
+	var links = String.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.StartsWith("http://") || s.StartsWith("www."));
     foreach (string s in links)
     	_links.Add(s);
     return _links;

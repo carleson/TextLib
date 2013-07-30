@@ -13,40 +13,19 @@ namespace TextLib.Numbers
 	/// <summary>
 	/// Description of Number.
 	/// </summary>
-	public class Number  : TextLib.IText
+	public class Number  : TextLib.Text
 	{
 		private List<int> _numbers;
-		private IEnumerable<string> _list;
-		
-		private string _text;
 		
 		public Number(string text)
 		{
-			if (text != null)
-			{
-				_text = text;
-			}
-			else
-			{
-				_text=string.Empty;
-			}
 			_numbers = GetNumbersAsIntegerList();
-			_list = GetNumbersAsStringList();
+			List = GetNumbersAsStringList();
 		}
 			
 		
 #region Properties
-		public string Text 
-		{
-			get { return _text;	}
-		}
-		
-				
-		public IEnumerable<string> List 
-		{
-			get {return _list;}
-		}
-		
+			
 		public List<int> Numbers
 		{
 			get
@@ -55,13 +34,7 @@ namespace TextLib.Numbers
 			}
 		}
 			
-		
-		public int SizeInBytes {
-			get {
-				throw new NotImplementedException();
-			}
-		}
-	
+
 #endregion
 
 #region Private methods
@@ -69,7 +42,7 @@ namespace TextLib.Numbers
 		private List<int> GetNumbersAsIntegerList()
 		{
 			List<int> numberList = new List<int>();
-			foreach (char c in Text)
+			foreach (char c in Source)
             {
                 if (char.IsNumber(c))
                 {
@@ -84,7 +57,7 @@ namespace TextLib.Numbers
 		private IEnumerable<string> GetNumbersAsStringList()
 		{
 			List<string> numberList = new List<string>();
-			foreach (char c in Text)
+			foreach (char c in Source)
             {
                 if (char.IsNumber(c))
                 {
@@ -98,12 +71,7 @@ namespace TextLib.Numbers
 #endregion
 
 #region Public methods
-
-		public int Count()
-		{
-			return _list.Count();
-		}
-		
+	
 		public IEnumerable<int> Gt(int minValue)
 		{		
 			var bigNums = from n in Numbers
