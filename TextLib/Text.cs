@@ -45,20 +45,16 @@ namespace TextLib
 			
 		}
 		
-		public int SizeInBytes {
-			get {
-				throw new NotImplementedException();
+		public int SizeInBytes
+		{
+			get
+			{
+				int size = (8 + 4 + 2 + (2 * Source.Length)) + 4 - 1; 
+				size = size/4 * 4;
+				
+				return size;
 			}
 		}
-		
-//		public override void Sort()
-//		{
-//			throw new NotImplementedException();
-//		}
-		
-//		public int Count()
-//		{
-//			return List.Count();
-//		}
+
 	}
 }

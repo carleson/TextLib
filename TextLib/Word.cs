@@ -15,33 +15,17 @@ namespace TextLib.Words
 	/// <summary>
 	/// Description of Word.
 	/// </summary>
-	public class Word : TextLib.IText
+	public class Word : TextLib.Text, IWord
 	{
 		private  List<string> _words;
-		private string _text;
 		
 		public Word(string text)
 		{
-			if (text != null)
-			{
-				_text = text;
-			}
-			else
-			{
-				_text=string.Empty;
-			}
-			
-			_words=GetWords();
+			base.Source=text;
+			base.List=GetWords().AsEnumerable();
 		}
 
 #region Properties	
-
-		public string String {get;set;}
-		
-		public IEnumerable<string> List 
-		{
-			get {return _words.AsEnumerable();}
-		}
 					
 		public List<string> Words
 		{
@@ -58,7 +42,7 @@ namespace TextLib.Words
 
 		private List<string> GetWords()
 		{
-			string[] words = String.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+			string[] words = base.Source.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 			return words.ToList();
 		}
 
@@ -71,11 +55,7 @@ namespace TextLib.Words
 			return _words.Any(s => s.Contains(value));
 		}
 		
-		public int Count()
-		{
-			return _words.Count();
-		}
-				
+			
 		public int Count(string word)
 		{
 			int hits = (from w in _words where w == word select w).Count();
@@ -86,7 +66,7 @@ namespace TextLib.Words
 		{
 			List<string> hitList = new List<string>();
 			string regexp = @"(\b[^\Wa-z0-9_]+\b)";
-			MatchCollection matches = Regex.Matches(_text, regexp);
+			MatchCollection matches = Regex.Matches(base.Source, regexp);
 			foreach (Match MyMatche in matches)
 	        {
 	        	hitList.Add(MyMatche.Value);
@@ -99,7 +79,7 @@ namespace TextLib.Words
 		{
 			string regexp = @"(\b[^\WA-Z0-9_]+\b)";
 			List<string> hitList = new List<string>();
-			MatchCollection matches = Regex.Matches(_text, regexp);
+			MatchCollection matches = Regex.Matches(base.Source, regexp);
 						foreach (Match MyMatche in matches)
 	        {
 	        	hitList.Add(MyMatche.Value);
@@ -111,33 +91,17 @@ namespace TextLib.Words
 		{
 			string regexp = @"(\b[^\Wa-z0-9_][^\WA-Z0-9_]*\b)";
 			List<string> hitList = new List<string>();
-			MatchCollection matches = Regex.Matches(_text, regexp);
+			MatchCollection matches = Regex.Matches(base.Source, regexp);
 			foreach (Match MyMatche in matches)
 	        {
 	        	hitList.Add(MyMatche.Value);
 	        }
 			return hitList;
 		}		
-
-		public void Sort()
-		{
-			throw new NotImplementedException();
-		}
-		
-		public int SizeInBytes
-		{
-			get
-			{
-				int size = (8 + 4 + 2 + (2 * String.Length)) + 4 - 1; 
-				size = size/4 * 4;
-				
-				return size;
-			}
-		}
 		
 		public string CommonWords()
 		{
-			string[] words = String.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+			string[] words = base.Source.Split(new string[] {" ", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 
             // Most common words
             var dictionary = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);

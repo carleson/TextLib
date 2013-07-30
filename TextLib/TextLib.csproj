@@ -46,12 +46,14 @@
     <Compile Include="Interface\INumbers.cs" />
     <Compile Include="Interface\IText.cs" />
     <Compile Include="Interface\IWeb.cs" />
+    <Compile Include="Interface\IWord.cs" />
     <Compile Include="Letter.cs" />
     <Compile Include="Number.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text.cs" />
     <Compile Include="Tools\HtmlToText.cs" />
     <Compile Include="Web.cs" />
+    <Compile Include="Word.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface" />
