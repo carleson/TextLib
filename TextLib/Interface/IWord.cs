@@ -11,8 +11,6 @@ namespace TextLib
 {
 	public interface IWord
 	{
-		bool Exists(string value);
-		int Count(string word);
 		List<string> GetAllCaps();
 		List<string> GetAllLowerCase();
 		List<string> GetAllInitialCaps();

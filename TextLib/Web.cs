@@ -16,7 +16,7 @@ namespace TextLib.Web
 	/// </summary>
 	public class Web: TextLib.Text, IWeb
 	{
-		private List<string> _links = new List<string>();
+		private List<string> _links;
 		
 		public Web(string text)
 		{
@@ -89,6 +89,7 @@ namespace TextLib.Web
 
 private List<string> GetLinks()
 {
+	_links = new List<string>();
 	var links = base.Source.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.StartsWith("http://") || s.StartsWith("www."));
     foreach (string s in links)
     	_links.Add(s);

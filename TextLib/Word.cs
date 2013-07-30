@@ -49,13 +49,6 @@ namespace TextLib.Words
 #endregion
 
 #region Public methods
-	
-//		public bool Exists(string value)
-//		{
-//			return _words.Any(s => s.Contains(value));
-//		}
-		
-
 		
 		public List<string> GetAllCaps()
 		{
@@ -126,10 +119,7 @@ namespace TextLib.Words
 			 return output;
 		}
 		
-#endregion
-
-		
-
+#endregion		
 
 	}
 }

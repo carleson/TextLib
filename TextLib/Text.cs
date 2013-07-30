@@ -32,9 +32,9 @@ namespace TextLib
 			}
 			set
 			{
-				if (Source != null)
+				if (value != null)
 				{
-					_source = Source;
+					_source = value;
 				}
 				else
 				{
@@ -67,7 +67,7 @@ namespace TextLib
 			return hits;	
 		}
 		
-		public bool Exists(string value)
+		public bool Exist(string value)
 		{
 			return List.Any(s => s.Contains(value));
 		}
