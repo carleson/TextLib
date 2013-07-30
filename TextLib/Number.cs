@@ -13,7 +13,7 @@ namespace TextLib.Numbers
 	/// <summary>
 	/// Description of Number.
 	/// </summary>
-	public class Number  : TextLib.Text
+	public class Number  : TextLib.Text, INumbers
 	{
 		private List<int> _numbers;
 		
