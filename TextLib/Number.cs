@@ -19,6 +19,7 @@ namespace TextLib.Numbers
 		
 		public Number(string text)
 		{
+			base.Source = text;
 			_numbers = GetNumbersAsIntegerList();
 			List = GetNumbersAsStringList();
 		}

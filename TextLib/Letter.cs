@@ -20,7 +20,7 @@ namespace TextLib.Letters
 		
 		public Letter(string text)
 		{
-			Source = text;
+			base.Source = text;
 			_letters = GetLetters();
 			List = _letters.AsEnumerable();
 		}
