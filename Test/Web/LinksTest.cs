@@ -33,7 +33,7 @@ namespace WebTest
 		public void LinksReturnsCorrectLinks()
 		{
 
-			Assert.IsTrue(_web.Links.Count==3);
+			Assert.IsTrue(_web.Links().Count==3);
 		}
 		
 

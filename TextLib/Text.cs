@@ -56,5 +56,9 @@ namespace TextLib
 			}
 		}
 
+		public int Count()
+		{
+			return new List<string>(List).Count;
+		}
 	}
 }

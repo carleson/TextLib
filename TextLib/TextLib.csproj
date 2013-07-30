@@ -42,6 +42,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Email.cs" />
+    <Compile Include="Interface\IEmail.cs" />
     <Compile Include="Interface\ILetter.cs" />
     <Compile Include="Interface\INumbers.cs" />
     <Compile Include="Interface\IText.cs" />

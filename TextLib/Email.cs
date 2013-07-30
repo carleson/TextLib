@@ -1,10 +1,8 @@
 ﻿/*
  * Created by SharpDevelop.
- * User: a491259
+ * User: Carleson
  * Date: 2013-06-28
  * Time: 08:34
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using System.Linq;
@@ -17,41 +15,24 @@ namespace TextLib.Emails
 	/// <summary>
 	/// Description of Email.
 	/// </summary>
-	public class Email : IText
+	public class Email : TextLib.Text, IEmail
 	{
-		private string _text;
+		//private string _text;
 		private List<string> _list = new List<string>();
 		private List<MailAddress> _emails = new List<MailAddress>();
 		
 		
 		public Email(string text)
 		{
-			if (text != null)
-			{
-				_text = text;
-			}
-			else
-			{
-				_text=string.Empty;
-			}
+			base.Source=text;
 			ExtractEmails();
+			base.List = _list.AsEnumerable();
 		}
 		
 #region Properties
 
-		public string String {get;set;}
 		
-		public int SizeInBytes {
-			get {
-				throw new NotImplementedException();
-			}
-		}
-		
-		public IEnumerable<string> List 
-		{
-			get {return _list.AsEnumerable();}
-		}
-		
+	
 		public IEnumerable<MailAddress> ListMailAddress
 		{
 			get {return _emails.AsEnumerable();}
@@ -66,7 +47,7 @@ namespace TextLib.Emails
 		        Regex emailRegex = new Regex(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*",
 		            RegexOptions.IgnoreCase);
 		        //find items that matches with our pattern
-		        MatchCollection emailMatches = emailRegex.Matches(String);
+		        MatchCollection emailMatches = emailRegex.Matches(base.Source);
 		
 		        foreach (Match emailMatch in emailMatches)
 		        {
@@ -80,15 +61,6 @@ namespace TextLib.Emails
 
 #region Public methods
 
-		public int Count()
-		{
-			return _list.Count();
-		}
-		
-		public void Sort()
-		{
-			//return List.OrderByDescending();
-		}
 		
 #endregion
 
